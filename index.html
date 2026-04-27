@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>天气查询</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app">
+    <div class="weather-card">
+
+      <div class="card-header">
+        <span class="app-title">天气查询</span>
+      </div>
+
+      <div class="search-row">
+        <input type="text" id="cityInput" class="city-input" placeholder="输入城市名称…" autocomplete="off">
+        <button class="btn btn-search" id="searchBtn">查询</button>
+      </div>
+
+      <div class="loading hidden" id="loadingSpinner"></div>
+
+      <div class="error-msg hidden" id="errorMsg"></div>
+
+      <div class="result-section hidden" id="resultSection">
+        <div class="city-name" id="cityName"></div>
+        <div class="temp-hero" id="tempDisplay"></div>
+        <div class="weather-desc" id="weatherDesc"></div>
+        <div class="divider"></div>
+        <div class="stats-row">
+          <div class="stat-item">
+            <span class="stat-label">湿度</span>
+            <span class="stat-value" id="humidity"></span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-label">风速</span>
+            <span class="stat-value" id="windSpeed"></span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
