@@ -1,13 +1,36 @@
-const cityInput     = document.getElementById('cityInput');
-const searchBtn     = document.getElementById('searchBtn');
+const cityInput      = document.getElementById('cityInput');
+const searchBtn      = document.getElementById('searchBtn');
 const loadingSpinner = document.getElementById('loadingSpinner');
-const errorMsg      = document.getElementById('errorMsg');
-const resultSection = document.getElementById('resultSection');
-const cityName      = document.getElementById('cityName');
-const tempDisplay   = document.getElementById('tempDisplay');
-const weatherDesc   = document.getElementById('weatherDesc');
-const humidity      = document.getElementById('humidity');
-const windSpeed     = document.getElementById('windSpeed');
+const errorMsg       = document.getElementById('errorMsg');
+const resultSection  = document.getElementById('resultSection');
+const cityName       = document.getElementById('cityName');
+const weatherIcon    = document.getElementById('weatherIcon');
+const tempDisplay    = document.getElementById('tempDisplay');
+const weatherDesc    = document.getElementById('weatherDesc');
+const humidity       = document.getElementById('humidity');
+const windSpeed      = document.getElementById('windSpeed');
+
+const THEMES = {
+  Clear:        { cls: 'theme-clear',   icon: '☀️'  },
+  Clouds:       { cls: 'theme-clouds',  icon: '⛅'  },
+  Rain:         { cls: 'theme-rain',    icon: '🌧️'  },
+  Drizzle:      { cls: 'theme-rain',    icon: '🌧️'  },
+  Snow:         { cls: 'theme-snow',    icon: '❄️'  },
+  Thunderstorm: { cls: 'theme-thunder', icon: '⛈️'  },
+};
+
+const weatherCard = document.querySelector('.weather-card');
+
+function applyWeatherTheme(condition) {
+  weatherCard.classList.remove('theme-clear', 'theme-clouds', 'theme-rain', 'theme-snow', 'theme-thunder');
+  const theme = THEMES[condition];
+  if (theme) {
+    weatherCard.classList.add(theme.cls);
+    weatherIcon.textContent = theme.icon;
+  } else {
+    weatherIcon.textContent = '🌡️';
+  }
+}
 
 function showLoading() {
   loadingSpinner.classList.remove('hidden');
@@ -28,6 +51,7 @@ function showResult(data) {
   weatherDesc.textContent = data.weather[0].description;
   humidity.textContent    = `${data.main.humidity}%`;
   windSpeed.textContent   = `${data.wind.speed} m/s`;
+  applyWeatherTheme(data.weather[0].main);
   resultSection.classList.remove('hidden');
 }
 

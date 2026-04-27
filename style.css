@@ -50,6 +50,43 @@ body {
   display: flex;
   flex-direction: column;
   gap: 24px;
+  transition: background 0.7s ease;
+}
+
+/* ── Weather Icon ── */
+.weather-icon {
+  font-size: 80px;
+  text-align: center;
+  line-height: 1;
+  filter: drop-shadow(0 4px 16px rgba(0, 0, 0, 0.25));
+  transition: opacity 0.4s;
+}
+
+/* ── Weather Themes ── */
+.theme-clear {
+  background: linear-gradient(160deg, #f7971e 0%, #ffd200 100%);
+  --text:     #1a1a00;
+  --muted-hi: #3a3010;
+  --muted:    #5a5020;
+}
+
+.theme-clouds {
+  background: linear-gradient(160deg, #4b6cb7 0%, #8fa8c8 100%);
+}
+
+.theme-rain {
+  background: linear-gradient(160deg, #1a3a5c 0%, #2d6a8f 100%);
+}
+
+.theme-snow {
+  background: linear-gradient(160deg, #a8c0d6 0%, #dce8f0 100%);
+  --text:     #1a2a3a;
+  --muted-hi: #3a5060;
+  --muted:    #5a7080;
+}
+
+.theme-thunder {
+  background: linear-gradient(160deg, #2c1654 0%, #4a2080 100%);
 }
 
 .card-header {
