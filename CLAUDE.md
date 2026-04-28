@@ -12,7 +12,7 @@ open index.html
 
 ## API
 
-Uses OpenWeatherMap REST API (`https://api.openweathermap.org/data/2.5/weather`). The API key lives in `config.js` and is loaded as a global `CONFIG.API_KEY` before `script.js`.
+Uses OpenWeatherMap REST API (`https://api.openweathermap.org/data/2.5/weather`). The API key is hardcoded as a `const key` in `searchWeather()` inside `script.js`. `config.js` is gitignored and no longer used.
 
 Key response fields used:
 - `data.weather[0].main` — condition category (Clear, Clouds, Rain, Drizzle, Snow, Thunderstorm)
